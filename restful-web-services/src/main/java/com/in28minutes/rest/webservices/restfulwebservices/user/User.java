@@ -3,11 +3,6 @@ package com.in28minutes.rest.webservices.restfulwebservices.user;
 import java.time.LocalDate;
 
 public class User {
-	
-	@Override
-	public String toString() {
-		return "User [id=" + id + ", name=" + name + ", birthDate=" + birthDate + "]";
-	}
 
 	private Integer id;
 	private String name;
@@ -44,7 +39,11 @@ public class User {
 	public void setBirthDate(LocalDate birthDate) {
 		this.birthDate = birthDate;
 	}
-
+	
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", name=" + name + ", birthDate=" + birthDate + "]";
+	}
 		
 
 }
