@@ -1,6 +1,9 @@
 package com.in28minutes.spring.aop.springaop.aspect;
 
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.annotation.After;
+import org.aspectj.lang.annotation.AfterReturning;
+import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.slf4j.Logger;
@@ -12,11 +15,11 @@ import org.springframework.context.annotation.Configuration;
 public class UserAccessAspect {
 	
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
-	
-	@Before("execution(* com.in28minutes.spring.aop.springaop..*.*(..))")
-	public void before(JoinPoint joinPoint) {
-		logger.info("check for user access");
-		logger.info("Intercepted Method {}" + joinPoint);
+		
+	@Before("com.in28minutes.spring.aop.springaop.aspect.CommonJoinPoint.dataLayerExecution()")
+	public void after(JoinPoint joinPoint) {
+		logger.info("allow execution for {}" , joinPoint);
+
 	}
 
 }
