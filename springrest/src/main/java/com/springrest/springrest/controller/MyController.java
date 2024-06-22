@@ -45,8 +45,7 @@ public class MyController {
     @DeleteMapping("/courses/{courseId}")
     public ResponseEntity deleteCourse(@PathVariable String courseId){
         try{
-            boolean present = this.courseServiceImpl.deleteCourse(Long.parseLong(courseId));
-            if(present){
+            if(this.courseServiceImpl.deleteCourse(Long.parseLong(courseId))){
                 return new ResponseEntity<>(HttpStatus.OK);
             }
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
