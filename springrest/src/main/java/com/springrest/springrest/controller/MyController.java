@@ -64,7 +64,6 @@ public class MyController {
     @DeleteMapping("/courses/{courseId}")
     public ResponseEntity deleteCourse(@PathVariable String courseId) {
         Course entity = this.courseDao.getOne(Long.parseLong(courseId));
-        this.courseDao.delete(entity);
         try {
             if (entity != null) {
                 this.courseDao.delete(entity);
